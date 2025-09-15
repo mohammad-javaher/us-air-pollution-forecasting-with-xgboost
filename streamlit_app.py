@@ -49,9 +49,19 @@ if isinstance(date_range, tuple) and len(date_range) == 2:
     future_df['NO2_pred'] = regNO2.predict(future_df[FEATURES])
     future_df['SO2_pred'] = regSO2.predict(future_df[FEATURES])
 
-    # Plot results
-    st.line_chart(future_df[['O3_pred', 'CO_pred', 'NO2_pred', 'SO2_pred']])
+    # --- Separate Plots ---
+    st.subheader("O3 Forecast")
+    st.line_chart(future_df[['O3_pred']])
+
+    st.subheader("CO Forecast")
+    st.line_chart(future_df[['CO_pred']])
+
+    st.subheader("NO2 Forecast")
+    st.line_chart(future_df[['NO2_pred']])
+
+    st.subheader("SO2 Forecast")
+    st.line_chart(future_df[['SO2_pred']])
 
     # Show table
+    st.subheader("Predicted Values Table")
     st.dataframe(future_df[['O3_pred', 'CO_pred', 'NO2_pred', 'SO2_pred']].round(3))
-
