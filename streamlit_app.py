@@ -31,7 +31,7 @@ st.title("🌍 Air Pollution Forecasting with XGBoost")
 # --- Date Range Selector ---
 date_range = st.date_input(
     "Select a date range for prediction",
-    value=(pd.Timestamp("2025-01-01"), pd.Timestamp("2025-02-01"))
+    value=(pd.Timestamp("2016-01-01"), pd.Timestamp("2020-02-01"))
 )
 
 if isinstance(date_range, tuple) and len(date_range) == 2:
